@@ -1,0 +1,9 @@
+:root{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(11, 20, 34);
+    color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
