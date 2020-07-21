@@ -1,6 +1,20 @@
 GitLab Repo: https://gitlab.com/jeffsimp88/photos-from-here
 GitLab Pages: https://jeffsimp88.gitlab.io/photos-from-here/
 
+Key:
+1eaac96ad6a232088012eeeb0f1cc678
+
+Secret:
+cec5f7ec5d1521ec
+
+Flickr url:
+https://flickr.com/services/rest/?api_key=1eaac96ad6a232088012eeeb0f1cc678&format=json&nojsoncallback=1&method=flickr.photos.search&safe_search=1&per_page=5&lat=39.76574&lon=-86.1579024&text=building
+
+CORS Proxy:
+https://shrouded-mountain-15003.herokuapp.com/
+
+Flickr Image:
+https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 
 
 For this assessment, you will create a web application to display photos that were taken near the user's geographic location.
