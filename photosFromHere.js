@@ -5,6 +5,12 @@ const options = {
     maximumAge: 0
 }
 
+let lat
+let lon
+const currentCoords = {latitude: lat, longitude: lon}
+let image = document.createElement('img')
+let currentIndex = 0
+
 const fallBackCoord = { latitude: 28.418732, longitude: -81.581191}
 
 function randomIndex(array){    
@@ -15,15 +21,17 @@ function constructImageURL (photoObj) {
     return "https://farm" + photoObj.farm +
             ".staticflickr.com/" + photoObj.server +
             "/" + photoObj.id + "_" + photoObj.secret + ".jpg";
-}
-
-let image = document.createElement('img')
-
+        }
+        
 function showPhoto (response){
-    let photoURL = constructImageURL(response.photos.photo[randomIndex(response.photos.photo)])
+    if(currentIndex >= response.photos.photo.length){
+        currentIndex = 0
+        let photoURL = constructImageURL(response.photos.photo[currentIndex])
+        image.src = photoURL       
+        document.getElementById("photoBox").appendChild(image)
+    }
+    let photoURL = constructImageURL(response.photos.photo[currentIndex])
     image.src = photoURL
-    console.log(response)
-    console.log(photoURL)
     document.getElementById("photoBox").appendChild(image)
 }
 
@@ -44,32 +52,33 @@ function assembleSearchURL(coords){
     "&per_page=5"+
     "&lat="+ coords.latitude +
     "&lon="+ coords.longitude +
-    "&text=building"
+    "&text=" + text
 }
 
 function showPictures (coords){
-    console.log("Lat: " + coords.latitude)
-    const lat = coords.latitude
-    console.log("Lon: " + coords.longitude)
-    const lon = coords.longitude
+    currentIndex+=1
+    currentCoords.latitude = coords.latitude
+    currentCoords.longitude = coords.longitude
     const url = assembleSearchURL(coords)    
     let fetchPromise = fetch(url)
     fetchPromise.then(proccessResponse)
 }
 
 function found (pos){
+    console.log("Lat: " + pos.coords.latitude)
+    console.log("Lon: " + pos.coords.longitude)
+    text = "buildings"
     showPictures(pos.coords)
-    console.log(pos.coords.latitude + " is the latitude.")
-   }
+}
 
 function notFound () {
     console.log("Cannot find location. Here's another great spot to check out: " + fallBackCoord.latitude + ", " + fallBackCoord.longitude)
+    text = "vader"
     showPictures(fallBackCoord)
 }
 
 navigator.geolocation.getCurrentPosition(found, notFound, options)
 
 function newPhoto(){
-
- console.log("TESTING")   
+    showPictures(currentCoords)
 }
