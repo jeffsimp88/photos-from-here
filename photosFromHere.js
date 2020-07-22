@@ -80,5 +80,7 @@ function notFound () {
 navigator.geolocation.getCurrentPosition(found, notFound, options)
 
 function newPhoto(){
+    text = document.getElementById('typedText').value
+    text = text.replace(" ", "_")
     showPictures(currentCoords)
 }

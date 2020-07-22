@@ -26,6 +26,10 @@ h1{
     font-size: 56px;
 }
 
+p{
+    text-align: center;
+}
+
 button{
     background-color: rgb(15, 85, 13);
     color: whitesmoke;
@@ -51,6 +55,12 @@ button:hover{
 button:active{
     transform: translateY(4px);
     box-shadow: 0 5px rgb(41, 41, 41);
+}
+
+textarea{
+    background-color: rgb(207, 207, 207);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
 #photoBox{
