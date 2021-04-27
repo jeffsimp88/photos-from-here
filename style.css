@@ -33,28 +33,39 @@ p {
 button {
   background-color: rgb(15, 85, 13);
   color: whitesmoke;
-  border: 3px solid rgb(0, 134, 6);
-  margin: 3px;
+  border: 2px solid rgb(0, 134, 6);
+  margin: 15px 2px 10px 2px;
   padding: 5px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 500;
   box-sizing: border-box;
   height: 40px;
   width: 170px;
-  box-shadow: 0 5px rgb(73, 73, 73);
+  box-shadow: 0px 2px 4px rgb(73 73 73);
+  transition-duration: 0.2s;
 }
 
 button:hover {
-  box-sizing: border-box;
   background-color: rgba(15, 85, 13, 0.472);
-
-  height: 40px;
-  width: 170px;
 }
 
 button:active {
-  transform: translateY(4px);
+  transform: translateY(2px);
   box-shadow: 0 5px rgb(41, 41, 41);
+}
+
+#typedText {
+  background-color: rgb(24, 42, 70);
+  color: whitesmoke;
+  font-size: 17px;
+  padding: 5px 4px 2px 4px;
+  border: 1px solid whitesmoke;
+  text-align: center;
+  outline: none;
+}
+
+#typedText::placeholder {
+  color: rgba(245, 245, 245, 0.45);
 }
 
 textarea {
@@ -67,8 +78,10 @@ textarea {
   align-items: center;
   justify-content: center;
   border: 2px solid rgb(175, 133, 26);
-  width: 550px;
-  height: 550px;
+  height: fit-content;
+  min-height: 450px;
+  min-width: 450px;
+  padding: 10px 10px;
 }
 
 img {
